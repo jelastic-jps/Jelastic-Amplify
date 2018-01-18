@@ -62,9 +62,6 @@
           }
         ]
     },
-    "success": {
-        "text": "NGINX Amplify add-on has been applied to the ${env.name} environment.<br>Enter Amplify dashboard to view the collected data on your NGINX-PHP instance(s) metrics.<div class='warning-lower' style='color:#b7c3da'><b>Note:</b> For the RAM and Disk usage monitoring, please refer to the Statistics section at Jelastic dashboard, as Amplify can present not accurate values for these two parameters.</div>",
-        "email": "NGINX Amplify add-on has been applied to the ${env.name} environment.<br>Enter Amplify dashboard to view the collected data on your NGINX-PHP instance(s) metrics.<div class='warning-lower' style='color:#b7c3da'><b>Note:</b> For the RAM and Disk usage monitoring, please refer to the Statistics section at Jelastic dashboard, as Amplify can present not accurate values for these two parameters.</div>"
-    }
+    "success": "NGINX Amplify add-on has been applied to the ${env.name} environment.<br>Enter Amplify dashboard to view the collected data on your NGINX-PHP instance(s) metrics.<div class='warning-lower' style='color:#b7c3da'><b>Note:</b> For the RAM and Disk usage monitoring, please refer to the Statistics section at Jelastic dashboard, as Amplify can present not accurate values for these two parameters.</div>"
   }
 }
