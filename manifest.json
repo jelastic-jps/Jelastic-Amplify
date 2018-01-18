@@ -18,8 +18,8 @@
     ],
     "logo": "https://raw.githubusercontent.com/jelastic-jps/nginx-amplify/master/images/nginx-amplify-logo.png",
     "description": {
-      "text": "NGINX Amplify is a tool for comprehensive monitoring of the NGINX-PHP application servers, which can be used to proactively detect and fix issues related to running and scaling applications.<div class='warning-lower' style='color:#b7c3da'>To get an API key, create an account at <a href=\"https://amplify.nginx.com/signup/\" target=\"_blank\" rel=\"noopener noreferrer nofollow\">Amplify website</a> and copy your key from the start page or account settings.</div>",
-      "short": "NGINX Amplify is a tool for monitoring, proactively detecting, and fixing issues related to running and scaling NGINX-based applications."
+      "text": "NGINX Amplify provides comprehensive monitoring for NGINX-PHP application server, helping to proactively detect and fix issues that are related to running and scaling your PHP applications.<div class='warning-lower' style='color:#b7c3da'>To get an API key, create an <a href=\"https://amplify.nginx.com/signup/\" target=\"_blank\" rel=\"noopener noreferrer nofollow\">Amplify</a> account and refer to settings to copy it.</div>",
+      "short": "NGINX Amplify is a tool for NGINX-PHP server metrics monitoring."
     },
     "settings": {
       "fields": [
