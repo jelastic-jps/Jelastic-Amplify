@@ -13,13 +13,13 @@
         ]
     },
     "name": "NGINX Amplify",
-    "homepage": "https://www.nginx.com/products/nginx-amplify/",
+    "homepage": "https://www.nginx.com/products/nginx-amplify/?utm_campaign=jelasticamplify&utm_source=jelastic-marketplace ",
     "categories": [
         "apps/dev-and-admin-tools"
     ],
     "logo": "https://raw.githubusercontent.com/jelastic-jps/nginx-amplify/master/images/nginx-amplify-logo.png",
     "description": {
-        "text": "NGINX Amplify provides comprehensive monitoring for NGINX web server, helping to proactively detect and fix issues that are related to running and scaling your PHP & Ruby applications or load balancers.<div class='warning-lower' style='color:#b7c3da'>To get an API key, create an <a href=\"https://amplify.nginx.com/signup/\" target=\"_blank\" rel=\"noopener noreferrer nofollow\">Amplify</a> account and refer to settings to copy it.</div>",
+        "text": "NGINX Amplify provides comprehensive monitoring for NGINX web server, helping to proactively detect and fix issues that are related to running and scaling your PHP & Ruby applications or load balancers.<div class='warning-lower' style='color:#b7c3da'>To get an API key, create an <a href=\"https://amplify.nginx.com/signup/?utm_campaign=jelasticamplify&utm_source=jelastic-marketplace \" target=\"_blank\" rel=\"noopener noreferrer nofollow\">Amplify</a> account and refer to settings to copy it.</div>",
         "short": "NGINX Amplify is a free tool for NGINX server metrics monitoring."
     },
     "globals": {
@@ -60,5 +60,5 @@
             "user": "root"
         }
     },
-    "success": "NGINX Amplify add-on has been applied to the <b>${env.envName}</b> environment.<br>Enter Amplify <a href=\"https://amplify.nginx.com/dashboard/\" target=\"_blank\" rel=\"noopener noreferrer nofollow\">dashboard </a>to view the collected data on your NGINX instance(s) metrics.<div class='warning-lower' style='color:#b7c3da'><b>Note:</b> For the RAM and Disk usage monitoring, please refer to the Statistics section at Jelastic dashboard, as Amplify can present not accurate values for these two parameters.</div>"
+    "success": "NGINX Amplify add-on has been applied to the <b>${env.envName}</b> environment.<br>Enter Amplify <a href=\"https://amplify.nginx.com/dashboard/?utm_campaign=jelasticamplify&utm_source=jelastic-marketplace \" target=\"_blank\" rel=\"noopener noreferrer nofollow\">dashboard </a>to view the collected data on your NGINX instance(s) metrics.<div class='warning-lower' style='color:#b7c3da'><b>Note:</b> For the RAM and Disk usage monitoring, please refer to the Statistics section at Jelastic dashboard, as Amplify can present not accurate values for these two parameters.</div>"
 }
