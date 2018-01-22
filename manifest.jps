@@ -1,5 +1,5 @@
 {
-    "version": "0.99",
+    "version": "1.1",
     "type": "update",
     "build": "20180122",
     "id": "nginx-amplify-agent",
@@ -62,5 +62,5 @@
             "user": "root"
         }
     },
-    "success": "NGINX Amplify add-on has been applied to the <b>${env.envName}</b> environment.<br>Enter Amplify <a href=\"https://amplify.nginx.com/dashboard/?utm_campaign=jelasticamplify&utm_source=jelastic-marketplace \" target=\"_blank\" rel=\"noopener noreferrer nofollow\">dashboard </a>to view the collected data on your NGINX instance(s) metrics.<div class='warning-lower' style='color:#b7c3da'><b>Note:</b> For the RAM and Disk usage monitoring, please refer to the Statistics section at Jelastic dashboard, as Amplify can present not accurate values for these two parameters.</div>"
+    "success": "NGINX Amplify add-on has been applied to the <b>${env.envName}</b> environment.<br>Enter Amplify <a href=\"https://amplify.nginx.com/dashboard/?utm_campaign=jelasticamplify&utm_source=jelastic-marketplace \" target=\"_blank\" rel=\"noopener noreferrer nofollow\">dashboard</a> to view the collected data on your NGINX instance(s) metrics.<div class='warning-lower' style='color:#b7c3da'><b>Note:</b> For the RAM and Disk usage monitoring, please refer to the Statistics section at Jelastic dashboard, as Amplify can present not accurate values for these two parameters.</div>"
 }
