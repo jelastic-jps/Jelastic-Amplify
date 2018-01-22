@@ -1,14 +1,15 @@
 {
     "version": "0.99",
     "type": "update",
-    "build": "20180120",
+    "build": "20180122",
     "id": "nginx-amplify-agent",
     "targetNodes": {
         "nodeType": [
             "nginxphp",
             "nginxphp-dockerized",
             "nginx",
-            "nginx-dockerized"
+            "nginx-dockerized",
+            "nginx-ruby"
         ]
     },
     "name": "NGINX Amplify",
@@ -18,8 +19,8 @@
     ],
     "logo": "https://raw.githubusercontent.com/jelastic-jps/nginx-amplify/master/images/nginx-amplify-logo.png",
     "description": {
-        "text": "NGINX Amplify provides comprehensive monitoring for NGINX-PHP application server, helping to proactively detect and fix issues that are related to running and scaling your PHP applications.<div class='warning-lower' style='color:#b7c3da'>To get an API key, create an <a href=\"https://amplify.nginx.com/signup/\" target=\"_blank\" rel=\"noopener noreferrer nofollow\">Amplify</a> account and refer to settings to copy it.</div>",
-        "short": "NGINX Amplify is a tool for NGINX-PHP server metrics monitoring."
+        "text": "NGINX Amplify provides comprehensive monitoring for NGINX web server, helping to proactively detect and fix issues that are related to running and scaling your PHP & Ruby applications or load balancers.<div class='warning-lower' style='color:#b7c3da'>To get an API key, create an <a href=\"https://amplify.nginx.com/signup/\" target=\"_blank\" rel=\"noopener noreferrer nofollow\">Amplify</a> account and refer to settings to copy it.</div>",
+        "short": "NGINX Amplify is a free tool for NGINX server metrics monitoring."
     },
     "globals": {
         "fpmConf": "/etc/php-fpm.conf"
@@ -59,5 +60,5 @@
             "user": "root"
         }
     },
-    "success": "NGINX Amplify add-on has been applied to the <b>${env.envName}</b> environment.<br>Enter Amplify <a href=\"https://amplify.nginx.com/dashboard/\" target=\"_blank\" rel=\"noopener noreferrer nofollow\">dashboard </a>to view the collected data on your NGINX-PHP instance(s) metrics.<div class='warning-lower' style='color:#b7c3da'><b>Note:</b> For the RAM and Disk usage monitoring, please refer to the Statistics section at Jelastic dashboard, as Amplify can present not accurate values for these two parameters.</div>"
+    "success": "NGINX Amplify add-on has been applied to the <b>${env.envName}</b> environment.<br>Enter Amplify <a href=\"https://amplify.nginx.com/dashboard/\" target=\"_blank\" rel=\"noopener noreferrer nofollow\">dashboard </a>to view the collected data on your NGINX instance(s) metrics.<div class='warning-lower' style='color:#b7c3da'><b>Note:</b> For the RAM and Disk usage monitoring, please refer to the Statistics section at Jelastic dashboard, as Amplify can present not accurate values for these two parameters.</div>"
 }
