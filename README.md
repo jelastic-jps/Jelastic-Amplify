@@ -34,3 +34,5 @@ When the installation is completed, return to your Amplify dashboard and wait a 
 ![NGINX Amplify Monitoring](/images/nginx-amplify-monitoring.png)
 
 Now, at Amplify dashboard, you are able to monitor your server and proactively detect & fix issues, related to running and scaling NGINX-based PHP&Ruby applications or load balancers. To find more information on Amplify usage and its capabilities, refer to the [official documentation](https://amplify.nginx.com/docs/guide-introduction.html).
+
+[![Deploy](https://github.com/jelastic-jps/git-push-deploy/raw/master/images/deploy-to-jelastic.png)](https://jelastic.com/install-application/?manifest=https://raw.githubusercontent.com/jelastic-jps/nginx-amplify/master/manifest.jps)
