@@ -20,7 +20,7 @@ Before installing the NGINX Amplify add-on, you need to create an account at off
 
 If you don’t have an environment with NGINX instance yet, click the _Deploy to Jelastic_ button below to automatically create such, with Amplify add-on being pre-installed to the NGINX-PHP application server. 
 
-[![Deploy](https://github.com/jelastic-jps/git-push-deploy/raw/master/images/deploy-to-jelastic.png)](https://jelastic.com/install-application/?manifest=https://raw.githubusercontent.com/jelastic-jps/nginx-amplify/master/manifest_install.jps)
+[![Deploy](https://github.com/jelastic-jps/git-push-deploy/raw/master/images/deploy-to-jelastic.png)](https://jelastic.com/install-application/?manifest=https://raw.githubusercontent.com/jelastic-jps/nginx-amplify/master/demo-nginx-php-fpm-amplify.jps)
 
 In case you’d like to integrate this add-on into the existing environment, copy the link to _**manifest.jps**_ from the repository file list above, enter your Jelastic dashboard and [import](https://docs.jelastic.com/environment-import) the copied URL.
 
