@@ -1,81 +1,50 @@
 {
-  "version": "1.1",
-  "type": "install",
-  "build": "20180122",
-  "id": "nginx-amplify-agent",
-  "targetNodes": {
-    "nodeType": [
-      "nginxphp",
-      "nginxphp-dockerized",
-      "nginx",
-      "nginx-dockerized",
-      "nginx-ruby"
-    ]
-  },
-  "name": "NGINX Amplify",
-  "homepage": "https://www.nginx.com/products/nginx-amplify/",
-  "categories": [
-    "apps/dev-and-admin-tools"
-  ],
-  "logo": "https://raw.githubusercontent.com/jelastic-jps/nginx-amplify/master/images/nginx-amplify-logo.png",
-  "description": {
-    "text": "NGINX Amplify provides comprehensive monitoring for NGINX web server, helping to proactively detect and fix issues that are related to running and scaling your PHP & Ruby applications or load balancers.<div class='warning-lower' style='color:#b7c3da'>To get an API key, create an <a href=\"https://amplify.nginx.com/signup/?utm_campaign=jelasticamplify&utm_source=jelastic-marketplace \" target=\"_blank\" rel=\"noopener noreferrer nofollow\">Amplify</a> account and refer to settings to copy it.</div>",
-    "short": "NGINX Amplify is a free tool for NGINX server metrics monitoring."
-  },
-  "globals": {
-    "fpmConf": "/etc/php-fpm.conf"
-  },
-  "topology": {
-    "engine": "php7.1",
-    "nodes": [
-      {
-        "extip": false,
-        "count": 1,
-        "cloudlets": 8,
-        "nodeType": "nginxphp"
-      }
+    "version": "1.1",
+    "type": "install",
+    "build": "20180122",
+    "id": "demo-nginx-amplify-agent",
+    "name": "Demo of NGINX PHP-FPM + Amplify",
+    "homepage": "https://www.nginx.com/products/nginx-amplify/",
+    "categories": [
+        "apps/dev-and-admin-tools"
     ],
-    "ssl": false,
-    "ha": false
-  },
-  "settings": {
-    "fields": [
-      {
-        "type": "string",
-        "name": "api_key",
-        "caption": "API key",
-        "vtype": "alphanum",
-        "vtypeText": "Alphanumeric input only.",
-        "required": true,
-        "default": "0000000000000000000000000000000000000000"
-      }
-    ]
-  },
-  "onInstall": "deploy",
-  "onUninstall": "undeploy",
-  "actions": {
-    "deploy": {
-      "cmd[cp]": [
-        "[ -f ${globals.fpmConf} ] && { sed -i 's/;pm.status_path/pm.status_path/g' ${globals.fpmConf}; }",
-        "curl -L -O https://github.com/nginxinc/nginx-amplify-agent/raw/master/packages/install.sh",
-        "API_KEY='${settings.api_key}' sh ./install.sh",
-        "curl -fsSL 'https://raw.githubusercontent.com/jelastic-jps/nginx-amplify/master/configs/stub_status.conf' -o /etc/nginx/conf.d/stub_status.conf",
-        "service nginx reload",
-        "service php-fpm reload",
-        "chkconfig amplify-agent on"
-      ],
-      "user": "root"
+    "logo": "https://raw.githubusercontent.com/jelastic-jps/nginx-amplify/master/images/nginx-amplify-logo.png",
+    "description": {
+        "text": "NGINX Amplify provides comprehensive monitoring for NGINX web server, helping to proactively detect and fix issues that are related to running and scaling your PHP & Ruby applications or load balancers.<div class='warning-lower' style='color:#b7c3da'>To get an API key, create an <a href=\"https://amplify.nginx.com/signup/?utm_campaign=jelasticamplify&utm_source=jelastic-marketplace \" target=\"_blank\" rel=\"noopener noreferrer nofollow\">Amplify</a> account and refer to settings to copy it.</div>",
+        "short": "NGINX Amplify is a free tool for NGINX server metrics monitoring."
     },
-    "undeploy": {
-      "cmd[cp]": [
-        "yum remove nginx-amplify-agent",
-        "rm -f /etc/nginx/conf.d/stub_status.conf",
-        "[ -f ${globals.fpmConf} ] && { sed -i 's/pm.status_path/;pm.status_path/g' ${globals.fpmConf}; }",
-        "service nginx reload",
-        "service php-fpm reload"
-      ],
-      "user": "root"
+    "globals": {
+        "fpmConf": "/etc/php-fpm.conf"
+    },
+    "topology": {
+        "engine": "php7.1",
+        "nodes": [{
+            "extip": false,
+            "count": 1,
+            "cloudlets": 8,
+            "nodeType": "nginxphp"
+        }],
+        "ssl": false,
+        "ha": false
+    },
+    "settings": {
+        "fields": [{
+            "type": "string",
+            "name": "api_key",
+            "caption": "API key",
+            "vtype": "alphanum",
+            "vtypeText": "Alphanumeric input only.",
+            "required": true,
+            "default": "0000000000000000000000000000000000000000"
+        }]
+    },
+    "onInstall": {
+        "install": {
+            "jps": "https://raw.githubusercontent.com/jelastic-jps/nginx-amplify/master/manifest.jps?_r=${fn.random}",
+            "envName": "${env.envName}",
+            "settings": {
+                "api_key": "${settings.api_key}"
+            }
+        }
     }
-  },
-  "success": "NGINX Amplify add-on has been applied to the <b>${env.envName}</b> environment.<br>Enter Amplify <a href=\"https://amplify.nginx.com/dashboard/?utm_campaign=jelasticamplify&utm_source=jelastic-marketplace \" target=\"_blank\" rel=\"noopener noreferrer nofollow\">dashboard</a> to view the collected data on your NGINX instance(s) metrics.<div class='warning-lower' style='color:#b7c3da'><b>Note:</b> For the RAM and Disk usage monitoring, please refer to the Statistics section at Jelastic dashboard, as Amplify can present not accurate values for these two parameters.</div>"
 }
