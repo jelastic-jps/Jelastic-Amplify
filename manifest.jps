@@ -41,13 +41,12 @@
     "actions": {
         "deploy": {
             "cmd[${targetNodes.nodeGroup}]": [
-                "[ -f ${globals.fpmConf} ] && { sed -i 's/;pm.status_path/pm.status_path/g' ${globals.fpmConf}; }",
                 "curl -L -O https://github.com/nginxinc/nginx-amplify-agent/raw/master/packages/install.sh",
                 "API_KEY='${settings.api_key}' sh ./install.sh",
                 "curl -fsSL 'https://raw.githubusercontent.com/jelastic-jps/nginx-amplify/master/configs/stub_status.conf' -o /etc/nginx/conf.d/stub_status.conf",
                 "service nginx reload",
-                "service php-fpm reload",
-                "chkconfig amplify-agent on"
+                "chkconfig amplify-agent on",
+                "[ -f ${globals.fpmConf} ] && { sed -i 's/;pm.status_path/pm.status_path/g' ${globals.fpmConf}; service php-fpm reload; }",
             ],
             "user": "root"
         },
@@ -55,9 +54,7 @@
             "cmd[${targetNodes.nodeGroup}]": [
                 "yum remove nginx-amplify-agent",
                 "rm -f /etc/nginx/conf.d/stub_status.conf",
-                "[ -f ${globals.fpmConf} ] && { sed -i 's/pm.status_path/;pm.status_path/g' ${globals.fpmConf}; }",
-                "service nginx reload",
-                "service php-fpm reload"
+                "[ -f ${globals.fpmConf} ] && { sed -i 's/pm.status_path/;pm.status_path/g' ${globals.fpmConf}; service php-fpm reload; }"
             ],
             "user": "root"
         }
