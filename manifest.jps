@@ -54,7 +54,7 @@
             "cmd[${targetNodes.nodeGroup}]": [
                 "yum remove nginx-amplify-agent",
                 "rm -f /etc/nginx/conf.d/stub_status.conf",
-                "[ -f ${globals.fpmConf} ] && { sed -i 's/pm.status_path/;pm.status_path/g' ${globals.fpmConf}; service php-fpm reload; }"
+                "[ -f ${globals.fpmConf} ] && { sed -i 's/pm.status_path/;pm.status_path/g' ${globals.fpmConf}; service php-fpm reload; } || echo 'php is absent'"
             ],
             "user": "root"
         }
