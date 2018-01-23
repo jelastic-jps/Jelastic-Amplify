@@ -45,8 +45,8 @@
                 "API_KEY='${settings.api_key}' sh ./install.sh",
                 "curl -fsSL 'https://raw.githubusercontent.com/jelastic-jps/nginx-amplify/master/configs/stub_status.conf' -o /etc/nginx/conf.d/stub_status.conf",
                 "service nginx reload",
-                "chkconfig amplify-agent on",
-                "[ -f ${globals.fpmConf} ] && { sed -i 's/;pm.status_path/pm.status_path/g' ${globals.fpmConf}; service php-fpm reload; }"
+                "[ -f ${globals.fpmConf} ] && { sed -i 's/;pm.status_path/pm.status_path/g' ${globals.fpmConf}; service php-fpm reload; }",
+                "chkconfig amplify-agent on"
             ],
             "user": "root"
         },
