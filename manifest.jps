@@ -13,7 +13,7 @@
         ]
     },
     "name": "NGINX Amplify",
-    "homepage": "https://www.nginx.com/products/nginx-amplify/?utm_campaign=jelasticamplify&utm_source=jelastic-marketplace ",
+    "homepage": "https://www.nginx.com/products/nginx-amplify/",
     "categories": [
         "apps/dev-and-admin-tools"
     ],
