@@ -25,19 +25,15 @@
     "globals": {
         "fpmConf": "/etc/php-fpm.conf"
     },
-    "topology": {
-        "engine": "php7.1",
-        "nodes": [
-            {
-                "extip": false,
-                "count": 1,
-                "cloudlets": 8,
-                "nodeType": "nginxphp"
-            }
-        ],
-        "ssl": false,
-        "ha": false
-    },
+    "engine": "php7.1",
+    "nodes": [
+      {
+        "extip": false,
+        "count": 1,
+        "cloudlets": 8,
+        "nodeType": "nginxphp"
+      }
+    ],
     "settings": {
         "fields": [
             {
