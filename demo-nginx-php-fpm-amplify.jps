@@ -51,31 +51,14 @@
             }
         ]
     },
-    "onInstall": "deploy",
-    "onUninstall": "undeploy",
-    "actions": {
-        "deploy": {
-            "cmd[cp]": [
-                "[ -f ${globals.fpmConf} ] && { sed -i 's/;pm.status_path/pm.status_path/g' ${globals.fpmConf}; }",
-                "curl -L -O https://github.com/nginxinc/nginx-amplify-agent/raw/master/packages/install.sh",
-                "API_KEY='${settings.api_key}' sh ./install.sh",
-                "curl -fsSL 'https://raw.githubusercontent.com/jelastic-jps/nginx-amplify/master/configs/stub_status.conf' -o /etc/nginx/conf.d/stub_status.conf",
-                "service nginx reload",
-                "service php-fpm reload",
-                "chkconfig amplify-agent on"
-            ],
-            "user": "root"
-        },
-        "undeploy": {
-            "cmd[cp]": [
-                "yum remove nginx-amplify-agent",
-                "rm -f /etc/nginx/conf.d/stub_status.conf",
-                "[ -f ${globals.fpmConf} ] && { sed -i 's/pm.status_path/;pm.status_path/g' ${globals.fpmConf}; }",
-                "service nginx reload",
-                "service php-fpm reload"
-            ],
-            "user": "root"
+    "onInstall": {
+        "install": {
+            "jps": "https://raw.githubusercontent.com/jelastic-jps/nginx-amplify/master/manifest.jps?_r=${fn.random}",
+            "envName": "${env.envName}",
+            "nodeGroup": "${nodes.cp.nodeGroup}",
+            "settings": {
+                "api_key": "${settings.api_key}"
+            }
         }
-    },
-    "success": "NGINX Amplify add-on has been applied to the <b>${env.envName}</b> environment.<br>Enter Amplify <a href=\"https://amplify.nginx.com/dashboard/?utm_campaign=jelasticamplify&utm_source=jelastic-marketplace \" target=\"_blank\" rel=\"noopener noreferrer nofollow\">dashboard</a> to view the collected data on your NGINX instance(s) metrics.<div class='warning-lower' style='color:#b7c3da'><b>Note:</b> For the RAM and Disk usage monitoring, please refer to the Statistics section at Jelastic dashboard, as Amplify can present not accurate values for these two parameters.</div>"
+    }
 }
