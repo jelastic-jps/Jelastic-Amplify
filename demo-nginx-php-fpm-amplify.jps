@@ -51,7 +51,7 @@
         "install": {
             "jps": "https://raw.githubusercontent.com/jelastic-jps/nginx-amplify/master/manifest.jps?_r=${fn.random}",
             "envName": "${env.envName}",
-            "nodeGroup": "${nodes.cp.nodeGroup}",
+            "nodeGroup": "${nodes.nginxphp.nodeGroup}",
             "settings": {
                 "api_key": "${settings.api_key}"
             }
