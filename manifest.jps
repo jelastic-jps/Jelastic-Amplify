@@ -26,15 +26,17 @@
         "fpmConf": "/etc/php-fpm.conf"
     },
     "settings": {
-        "fields": [{
-            "type": "string",
-            "name": "api_key",
-            "caption": "API key",
-            "vtype": "alphanum",
-            "vtypeText": "Alphanumeric input only.",
-            "required": true,
-            "default": "0000000000000000000000000000000000000000"
-        }]
+        "fields": [
+            {
+                "type": "string",
+                "name": "api_key",
+                "caption": "API key",
+                "vtype": "alphanum",
+                "vtypeText": "Alphanumeric input only.",
+                "required": true,
+                "default": "0000000000000000000000000000000000000000"
+            }
+        ]
     },
     "onInstall": "deploy",
     "onUninstall": "undeploy",
@@ -57,7 +59,31 @@
                 "rm -f /etc/nginx/conf.d/stub_status.conf"
             ],
             "user": "root"
+        },
+        "update": {
+            "cmd[${targetNodes.nodeGroup}]": [
+                "yum makecache && yum update nginx-amplify-agent"
+            ],
+            "user": "root"
         }
     },
+  "menu":[
+    {
+      "confirmText": "Do you want to update Amplify Agent?",
+      "loadingText": "Updating...",
+      "action": "update",
+      "caption": "Update Amplify Agent",
+      "successText": "Amplify Agent has been successfully updated!"
+    }
+
+  ],
+    "buttons": [
+      {
+        "loadingText": "Opening...",
+        "action": "openamplify",
+        "caption": "Go to Amplify dashboard",
+        "href": "https://amplify.nginx.com/dashboard/"
+      }
+    ],
     "success": "NGINX Amplify add-on has been applied to the <b>${env.envName}</b> environment.<br>Enter Amplify <a href=\"https://amplify.nginx.com/dashboard/?utm_campaign=jelasticamplify&utm_source=jelastic-marketplace \" target=\"_blank\" rel=\"noopener noreferrer nofollow\">dashboard</a> to view the collected data on your NGINX instance(s) metrics.<div class='warning-lower' style='color:#b7c3da'><b>Note:</b> For the RAM and Disk usage monitoring, please refer to the Statistics section at Jelastic dashboard, as Amplify can present not accurate values for these two parameters.</div>"
 }
