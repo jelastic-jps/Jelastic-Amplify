@@ -62,7 +62,7 @@
         },
         "update": {
             "cmd[${targetNodes.nodeGroup}]": [
-                "yum makecache && yum update nginx-amplify-agent"
+                "yum makecache && yum -y update nginx-amplify-agent"
             ],
             "user": "root"
         }
